@@ -22,7 +22,6 @@ function init() {
   let yesBtn = document.getElementById("playwithme-yes");
   let btnRow = document.getElementById("playwithme-button-row")
 
-  console.log(`w: ${maxWidth} h: ${maxHeight}`)
   btnRow.style.flexDirection = maxHeight > maxWidth ? "column" : "row";
 
   let maxFromWidth = Math.round(Math.log(maxWidth * 0.8 / yesBtn.offsetWidth) / Math.log(yesMultiplier));
@@ -57,6 +56,8 @@ function onYes() {
   }
 
   resetBtn.hidden = false;
+
+  plausible("YesButton", {props: {attempts: attemptCount, maxAttempts: maxAttempts}})
 }
 
 function onNo() {
@@ -69,10 +70,14 @@ function onNo() {
     let noBtn = document.getElementById("playwithme-no");
     noBtn.remove();
   }
+
+  plausible("NoButton", {props: {attempts: attemptCount, maxAttempts: maxAttempts}})
 }
 
 function onReset() {
   location.reload();
+
+  plausible("ResetButton", {props: {attempts: attemptCount, maxAttempts: maxAttempts}})
 }
 
 init();
