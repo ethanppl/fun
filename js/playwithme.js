@@ -18,10 +18,15 @@ function init() {
 
   let maxWidth = document.documentElement.scrollWidth;
   let maxHeight = document.documentElement.scrollHeight;
+
   let yesBtn = document.getElementById("playwithme-yes");
+  let btnRow = document.getElementById("playwithme-button-row")
+
+  console.log(`w: ${maxWidth} h: ${maxHeight}`)
+  btnRow.style.flexDirection = maxHeight > maxWidth ? "column" : "row";
 
   let maxFromWidth = Math.round(Math.log(maxWidth * 0.8 / yesBtn.offsetWidth) / Math.log(yesMultiplier));
-  let maxFromHeight = Math.round(Math.log(maxHeight * 0.8 / yesBtn.offsetHeight) / Math.log(yesMultiplier));
+  let maxFromHeight = Math.round(Math.log(maxHeight * 0.75 / yesBtn.offsetHeight) / Math.log(yesMultiplier));
 
   maxAttempts = Math.min(maxAttempts, maxFromHeight, maxFromWidth);
 }
@@ -43,10 +48,13 @@ function onYes() {
   let noBtn = document.getElementById("playwithme-no");
   let resetBtn = document.getElementById("playwithme-reset");
 
-  header.innerText = "I knew you would say yes!";
+  header.innerHTML = "I knew you would say yes &#x2665;&#xfe0f;";
   header.style.animation = "1s ease-in-out infinite playwithme-celebration"
   yesBtn.remove();
-  noBtn.remove();
+
+  if (noBtn) {
+    noBtn.remove();
+  }
 
   resetBtn.hidden = false;
 }
@@ -55,9 +63,12 @@ function onNo() {
   if (attemptCount++ < maxAttempts) {
     yesSize *= yesMultiplier;
     noSize *= noMultiplier;
-  }
 
-  setSizes();
+    setSizes();
+  } else {
+    let noBtn = document.getElementById("playwithme-no");
+    noBtn.remove();
+  }
 }
 
 function onReset() {
@@ -65,3 +76,18 @@ function onReset() {
 }
 
 init();
+
+function detectAndApplyIOSClass() {
+    // Check if the user agent string contains iOS device keywords
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    // Because somehow iOS cannot render transition properly!
+    if (isIOS) {
+      const elements = document.getElementsByClassName("playwithme-button");
+      for (const element of elements) {
+        element.style.transition = "none";
+      }
+    }
+}
+
+detectAndApplyIOSClass();

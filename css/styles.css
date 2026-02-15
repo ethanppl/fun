@@ -25,6 +25,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  /* Prevent double tap zoom */
+  touch-action: manipulation;
 }
 
 .playwithme-header {
@@ -44,11 +47,18 @@ body {
 
 .playwithme-button {
   font-family: inherit;
+  color: #04151f;
+
   margin: 2rem 1rem;
   font-size: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  transition: 0.15s all ease-in;
+
+  /* animation to smooth transition */
+  transition: 0.2s ease-in-out;
+
+  /* ios highlight button on click */
+  -webkit-tap-highlight-color: transparent;
 
   &.yes {
     background-color: #36d460;
