@@ -10,5 +10,57 @@ body {
 }
 
 .fun-title {
-  font-size: x-large;
+  font-size: 1.5rem;
+}
+
+@keyframes playwithme-celebration {
+  0% {scale: 100%;}
+  50% {scale: 110%;}
+  100% {scale: 100%;}
+}
+
+.playwithme-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.playwithme-header {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.playwithme-button-row {
+  width: 100%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.playwithme-button {
+  font-family: inherit;
+  margin: 2rem 1rem;
+  font-size: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: 0.15s all ease-in;
+
+  &.yes {
+    background-color: #36d460;
+    border-color: #36d460;
+  }
+
+  &.no {
+    background-color: #e74133;
+    border-color: #e74133;
+  }
+
+  &.reset {
+    margin-top: 10rem;
+  }
 }

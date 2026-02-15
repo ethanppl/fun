@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Play With Me!</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:opsz,wdth,wght@18..144,100,300..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="playwithme-container">
+      <div id="playwithme-header" class="playwithme-header">Do you want to play with me?</div>
+      <div class="playwithme-button-row">
+        <button
+          id="playwithme-yes"
+          class="playwithme-button yes"
+          onclick="onYes()"
+        >
+          Yes!
+        </button>
+        <button
+          id="playwithme-no"
+          class="playwithme-button no"
+          onclick="onNo()"
+        >
+          No.
+        </button>
+      </div>
+      <button
+        id="playwithme-reset"
+        class="playwithme-button reset"
+        onclick="onReset()"
+        hidden="true"
+      >
+        think again...
+      </button>
+    </div>
+    <script src="/js/playwithme.js"></script>
+  </body>
+</html>

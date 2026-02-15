@@ -2,7 +2,7 @@ const BOUNCY_ELEMENT_ID = "fun-title";
 const ANIMATION_INTERVAL_MS = 10;
 
 const SPEED = 50;
-const PADDING = 2;
+const PADDING = 3;
 
 function main() {
   let element = document.getElementById(BOUNCY_ELEMENT_ID);
