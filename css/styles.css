@@ -1,0 +1,14 @@
+body {
+  color: #04151F;
+  background: #FEFAF5;
+  font: 90% Merriweather, serif;
+  font-weight: 400;
+  padding: 4rem 1rem;
+  line-height: 1.5rem;
+  max-width: min(72ch, 100% - 4rem);
+  margin-inline: auto;
+}
+
+.fun-title {
+  font-size: x-large;
+}
