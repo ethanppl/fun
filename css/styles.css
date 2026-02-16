@@ -9,6 +9,10 @@ body {
   margin-inline: auto;
 }
 
+.index-title {
+  font-size: 1.5rem;
+}
+
 .fun-title {
   font-size: 1.5rem;
 }
