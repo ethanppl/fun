@@ -3,17 +3,44 @@ body {
   background: #FEFAF5;
   font: 90% Merriweather, serif;
   font-weight: 400;
-  padding: 4rem 1rem;
   line-height: 1.5rem;
+  min-height: 100vh;
+  position: relative;
+  margin: 0px;
+}
+
+.page-container {
+  padding: 4rem 1rem;
   max-width: min(72ch, 100% - 4rem);
   margin-inline: auto;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #eee7e7;
+  margin: 0px;
+
+  a {
+    color: #04151F;
+  }
+}
+
+.footer-container {
+  padding: 1rem 0rem;
+  max-width: min(72ch, 100% - 4rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .index-title {
   font-size: 1.5rem;
 }
 
-.fun-title {
+.dvd-title {
   font-size: 1.5rem;
 }
 

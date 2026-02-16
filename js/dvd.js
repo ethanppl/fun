@@ -1,4 +1,4 @@
-const BOUNCY_ELEMENT_ID = "fun-title";
+const BOUNCY_ELEMENT_ID = "dvd-title";
 const ANIMATION_INTERVAL_MS = 10;
 
 const SPEED = 50;
@@ -39,6 +39,9 @@ function main() {
   let winWidth = document.documentElement.scrollWidth;
   let winHeight = document.documentElement.scrollHeight;
 
+  const footer = document.getElementsByTagName("footer")[0];
+  const footerHeight = footer?.offsetHeight ?? 0;
+
   element.style.position = "absolute";
   let top = Math.round(Math.random() * (winHeight - elementHeight));
   let left = Math.round(Math.random() * (winWidth - elementWidth));
@@ -57,7 +60,7 @@ function main() {
     elementHeight = element.offsetHeight;
 
     winWidth = document.documentElement.scrollWidth;
-    winHeight = document.documentElement.scrollHeight;
+    winHeight = document.documentElement.scrollHeight - footerHeight;
 
     [top, isGoingDown] = pingPong(
       0, 
