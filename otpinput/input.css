@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+    --color-black: #04151f;
+    --color-white: #fefaf5;
+}
+
+body {
+    color: var(--color-black);
+    background: var(--color-white);
+    font:
+        90% Merriweather,
+        Georgia,
+        Times New Roman,
+        serif;
+    font-weight: 300;
+    line-height: 1.5rem;
+    margin-inline: auto;
+}

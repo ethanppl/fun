@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <title>OTP Input</title>
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link rel="stylesheet" href="styles.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:opsz,wdth,wght@18..144,100,300..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <script src="/js/footer.js"></script>
+        <script
+            defer
+            data-domain="fun.ethanppl.com"
+            src="https://plausible.ethanppl.com/js/script.tagged-events.js"
+        ></script>
+    </head>
+    <body>
+        <div class="h-full flex flex-col p-16">
+            <div class="mx-auto text-4xl font-semibold">OTP Input</div>
+            <div id="otp-group" class="mx-auto my-16">
+                <input
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    autocorrect="off"
+                    spellcheck="false"
+                    enterkeyhint="next"
+                    pattern="\d{1}"
+                    class="aspect-square w-16 min-w-0 rounded-lg border text-center text-xl outline-none transition-colors duration-200 focus:ring-2"
+                    value=""
+                />
+                <input
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    autocorrect="off"
+                    spellcheck="false"
+                    enterkeyhint="next"
+                    pattern="\d{1}"
+                    class="aspect-square w-16 min-w-0 rounded-lg border text-center text-xl outline-none transition-colors duration-200 focus:ring-2"
+                    value=""
+                />
+                <input
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    autocorrect="off"
+                    spellcheck="false"
+                    enterkeyhint="next"
+                    pattern="\d{1}"
+                    class="aspect-square w-16 min-w-0 rounded-lg border text-center text-xl outline-none transition-colors duration-200 focus:ring-2"
+                    value=""
+                />
+                <input
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    autocorrect="off"
+                    spellcheck="false"
+                    enterkeyhint="next"
+                    pattern="\d{1}"
+                    class="aspect-square w-16 min-w-0 rounded-lg border text-center text-xl outline-none transition-colors duration-200 focus:ring-2"
+                    value=""
+                />
+                <input
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    autocorrect="off"
+                    spellcheck="false"
+                    enterkeyhint="next"
+                    pattern="\d{1}"
+                    class="aspect-square w-16 min-w-0 rounded-lg border text-center text-xl outline-none transition-colors duration-200 focus:ring-2"
+                    value=""
+                />
+                <input
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    autocorrect="off"
+                    spellcheck="false"
+                    enterkeyhint="next"
+                    pattern="\d{1}"
+                    class="aspect-square w-16 min-w-0 rounded-lg border text-center text-xl outline-none transition-colors duration-200 focus:ring-2"
+                    value=""
+                />
+            </div>
+            <div class="flex flex-row gap-4 items-center mx-auto">
+                <button
+                    id="clear-btn"
+                    class="py-1 px-4 border rounded-lg cursor-pointer disabled:cursor-default disabled:opacity-25"
+                >
+                    Clear
+                </button>
+                <button
+                    id="submit-btn"
+                    class="py-1 px-4 border rounded-lg cursor-pointer disabled:cursor-default disabled:opacity-25"
+                >
+                    Submit
+                </button>
+            </div>
+            <div
+                class="mx-auto mt-64 max-w-96 text-center font-extralight text-black/50"
+            >
+                This one is just my fun practice. I want to see if I can code
+                this UI out with vanilla JS by hand.
+            </div>
+        </div>
+        <c-footer />
+        <script src="/js/otpinput.js"></script>
+    </body>
+</html>
