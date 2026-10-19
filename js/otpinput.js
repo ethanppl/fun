@@ -1,5 +1,11 @@
 const INPUT_NUM = 6;
 
+let answer = Math.round(Math.random() * 10 ** INPUT_NUM);
+
+let attempt = 0;
+let isGameEnded = false;
+const goodAttemptCount = Math.round(Math.log2(10 ** INPUT_NUM)) + 1;
+
 let value = "";
 let focusIndex = 0;
 
@@ -13,6 +19,14 @@ function getClearBtn() {
 
 function getSubmitBtn() {
   return document.getElementById("submit-btn");
+}
+
+function getResetBtn() {
+  return document.getElementById("reset-btn");
+}
+
+function getAttemptText() {
+  return document.getElementById("attempt-text");
 }
 
 function handleFocusItem(e, i) {
@@ -78,13 +92,37 @@ function updateValue(newValue) {
   }
 }
 
+function updateAttemptText() {
+  const node = getAttemptText();
+  node.style.opacity = "50%";
+  node.innerText = `Attempt: ${attempt}`;
+}
+
+function onGameEnded() {
+  getClearBtn().hidden = true;
+  getSubmitBtn().hidden = true;
+  getResetBtn().hidden = false;
+  getAttemptText().innerText = `Correct on attempt ${attempt}, ${attempt <= goodAttemptCount ? "not bad!" : "can be better!"}`;
+}
+
 function submit() {
   setTimeout(() => {
+    const guess = parseInt(value);
+    isGameEnded = guess == answer;
+    attempt += 1;
+
+    updateAttemptText();
+    if (isGameEnded) {
+      onGameEnded();
+    }
+
+    const isAnswerHigher = guess < answer;
     const s =
       value.length === INPUT_NUM
-        ? `Submitted '${value}'`
+        ? `Submitted '${value}', ${isGameEnded ? "correct!" : isAnswerHigher ? "too low!" : "too high!"}`
         : `'${value}' is invalid.`;
     window.alert(s);
+
     updateFocus();
   }, 100);
 }
@@ -94,6 +132,8 @@ function init() {
 
   elements.forEach((e, i) => {
     e.addEventListener("input", () => {
+      if (isGameEnded) return;
+
       // cursor is moved to the first when handling focus
       const input = e.value.substring(0, 1);
 
@@ -117,10 +157,6 @@ function init() {
       // console.log(i, k.code);
       focusIndex = i;
 
-      if (k.code === "Enter" && value.length === INPUT_NUM) {
-        submit();
-      }
-
       if (k.code === "ArrowLeft") {
         focusIndex -= 1;
         updateFocus();
@@ -131,6 +167,12 @@ function init() {
         focusIndex += 1;
         updateFocus();
         return true;
+      }
+
+      if (isGameEnded) return true;
+
+      if (k.code === "Enter" && value.length === INPUT_NUM) {
+        submit();
       }
 
       if (k.code === "Backspace" || k.code === "Delete") {
@@ -164,6 +206,7 @@ function init() {
 
     e.addEventListener("paste", (evt) => {
       evt.preventDefault();
+      if (isGameEnded) return;
       let paste = (evt.clipboardData || window.clipboardData).getData("text");
       paste = paste.replace(/[^\d]*/g, "");
 
@@ -194,6 +237,25 @@ function setupSubmitBtn() {
   });
 }
 
+function setupResetBtn() {
+  const resetBtn = getResetBtn();
+  resetBtn.addEventListener("click", () => {
+    isGameEnded = false;
+    attempt = 0;
+    answer = Math.round(Math.random() * 10 ** INPUT_NUM);
+    getClearBtn().hidden = false;
+    getSubmitBtn().hidden = false;
+    resetBtn.hidden = true;
+    const attemptText = getAttemptText();
+    attemptText.innerText = "Attempt: 0";
+    attemptText.style.opacity = "0%";
+
+    focusIndex = 0;
+    updateValue("");
+  });
+}
+
 init();
 setupClearBtn();
 setupSubmitBtn();
+setupResetBtn();

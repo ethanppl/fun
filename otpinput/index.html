@@ -19,9 +19,11 @@
         ></script>
     </head>
     <body>
-        <div class="h-full flex flex-col p-16">
-            <div class="mx-auto text-4xl font-semibold">OTP Input</div>
-            <div id="otp-group" class="mx-auto my-16">
+        <div
+            class="w-full max-w-xl h-full flex flex-col p-16 mx-auto items-center"
+        >
+            <div class="text-4xl font-semibold">OTP Input</div>
+            <div id="otp-group" class="my-16">
                 <input
                     type="text"
                     inputmode="numeric"
@@ -89,19 +91,36 @@
                     value=""
                 />
             </div>
-            <div class="flex flex-row gap-4 items-center mx-auto">
-                <button
-                    id="clear-btn"
-                    class="py-1 px-4 border rounded-lg cursor-pointer disabled:cursor-default disabled:opacity-25"
+            <div
+                class="flex flex-row gap-4 justify-between items-center w-full"
+            >
+                <div
+                    id="attempt-text"
+                    class="flex flex-row gap-2 items-center opacity-0"
                 >
-                    Clear
-                </button>
-                <button
-                    id="submit-btn"
-                    class="py-1 px-4 border rounded-lg cursor-pointer disabled:cursor-default disabled:opacity-25"
-                >
-                    Submit
-                </button>
+                    Attempt: 0
+                </div>
+                <div class="flex flex-row gap-4 justify-between items-center">
+                    <button
+                        id="clear-btn"
+                        class="py-1 px-4 border rounded-lg cursor-pointer disabled:cursor-default disabled:opacity-25"
+                    >
+                        Clear
+                    </button>
+                    <button
+                        id="submit-btn"
+                        class="py-1 px-4 border rounded-lg cursor-pointer disabled:cursor-default disabled:opacity-25"
+                    >
+                        Submit
+                    </button>
+                    <button
+                        id="reset-btn"
+                        class="py-1 px-4 border rounded-lg cursor-pointer disabled:cursor-default disabled:opacity-25"
+                        hidden="true"
+                    >
+                        Reset
+                    </button>
+                </div>
             </div>
             <div
                 class="mx-auto mt-64 max-w-96 text-center font-extralight text-black/50"
